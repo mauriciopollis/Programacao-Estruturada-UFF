@@ -13,5 +13,35 @@ Faça um programa que permita ao usuário informar seu saldo bancário e que esc
 #include<stdio.h>
 
 int main(void) {
+
+    float saldoBancario, impostoDevido;
+
+    printf("Digite o saldo bancário: ");
+    scanf("%f", &saldoBancario);
+
+    if(saldoBancario<100) {
+        impostoDevido = 0;
+    }
+    else {
+        if(saldoBancario<1000) {
+            impostoDevido = 0.01*saldoBancario;
+        }
+        else {
+            if(saldoBancario<10000) {
+                impostoDevido = 0.02*saldoBancario;
+            }
+            else {
+                if(saldoBancario<100000) {
+                    impostoDevido = 0.03*saldoBancario;
+                }
+                else {
+                    impostoDevido = 0.05*saldoBancario;
+                }
+            }
+        }
+    }
+
+    printf("O imposto devido é %.2f reais", impostoDevido);
+
     return 0;
 }
