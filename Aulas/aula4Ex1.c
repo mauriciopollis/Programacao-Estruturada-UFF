@@ -92,6 +92,8 @@ void main() {
             printf("Operação inválida\n\n");
         }
 
+         // printf("\e[1;1H\e[2J"); // regex para limpar o console
+        
         escreve_menu();
         printf("Digite a operação: ");
         scanf(" %c", &operacao);
