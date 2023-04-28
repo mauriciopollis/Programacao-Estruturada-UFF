@@ -3,6 +3,7 @@ Fazer uma função que retorne o n-ésimo termo da sequência de fibonacci usand
 */
 
 #include<stdio.h>
+#include<time.h>
 
 long long int fibonacci_iterativo(int n) {
     
@@ -25,11 +26,20 @@ long long int fibonacci_iterativo(int n) {
 int main() {
 
     int numero;
+    long long int fibonacci_n;
+    clock_t inicio, fim;
+    double cpu_time_used;
 
     printf("Insira um número inteiro: ");
     scanf("%d", &numero);
 
-    printf("O %d-ésimo termo da sequência de fibonacci é %lli", numero, fibonacci_iterativo(numero));
+    inicio = clock();
+    fibonacci_n = fibonacci_iterativo(numero);
+    fim = clock();
+    cpu_time_used = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
+
+    printf("O %d-ésimo termo da sequência de fibonacci é %lli\n\n", numero, fibonacci_n);
+    printf("Tempo de execução da função: %f", cpu_time_used);
 
     return 0;
 }

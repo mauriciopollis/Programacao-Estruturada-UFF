@@ -25,6 +25,10 @@ Alguns resultados:
     -para n = 51:
         iterativo:  0.000000 segundos
         recursivo: 76.275000 segundos
+
+    -para n = 52:
+        iterativo:   0.000000 segundos
+        recursivo: 119.787000 segundos
 */
 
 #include<stdio.h>
@@ -45,7 +49,7 @@ long long int fibonacci_recursivo(int n) {
 
 long long int fibonacci_iterativo(int n) {
     
-    int termo1 = 1, termo2 = 1;
+    long long int termo1 = 1, termo2 = 1;
     long long int termo3;
 
     if(n<=2) {
@@ -83,7 +87,8 @@ int main() {
     endRecursivo = clock();
     cpu_time_used_recursivo = ((double) (endRecursivo - startRecursivo)) / CLOCKS_PER_SEC;
 
-    printf("O %d-ésimo termo da sequência de fibonacci é %d\n\n", numero, fibonacciIterativo);
+    printf("O %d-ésimo termo da sequência de fibonacci(iterativo) é %d\n", numero, fibonacciIterativo);
+    printf("O %d-ésimo termo da sequência de fibonacci(recursivo) é %d\n\n", numero, fibonacciRecursivo);
 
     printf("O método iterativo demorou %f segundos\n", cpu_time_used_iterativo);
     printf("O método recursivo demorou %f segundos", cpu_time_used_recursivo);
