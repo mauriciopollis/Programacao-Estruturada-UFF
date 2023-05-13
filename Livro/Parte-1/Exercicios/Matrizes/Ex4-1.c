@@ -103,7 +103,7 @@ int verifica_vetor_ponteiros() {
 
 int main() {
 
-    int metodo, resultado = 2;
+    int metodo, resultado = 3;
 
     menu();
     scanf("%d", &metodo);
