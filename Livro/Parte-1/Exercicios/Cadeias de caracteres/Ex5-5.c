@@ -7,7 +7,20 @@ void string_oposta(char* str);
 
 #include<stdio.h>
 
-void string_oposta(char* str);
+void string_oposta(char* str) {
+    
+    int i=0;
+
+    while(str[i]!='\0') {
+        if((str[i]>='A' && str[i]<='Z')) {
+            str[i] = 'A' + 'Z' - str[i];
+        }
+        if((str[i]>='a' && str[i]<='z')) {
+            str[i] = 'a' + 'z' - str[i];
+        }
+        i++;
+    }
+}
 
 int main() {
 
