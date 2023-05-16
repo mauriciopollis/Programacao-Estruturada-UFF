@@ -24,12 +24,12 @@ int main() {
     Estado vetor_estados[NUM_ESTADOS];
     float menor_indice_acidentes;
     int total_acidentes = 0, maior_numero_carros = 0;
-    char sigla_mais_carros[3], sigla_menor_indice;
+    char sigla_mais_carros[3], sigla_menor_indice[3];
 
     for(int i=0; i<NUM_ESTADOS; i++) {
-        printf('Digite a sigla do estado: ');
+        printf("Digite a sigla do estado: ");
         scanf(" %s", vetor_estados[i].sigla);
-        prtinf("Digite o número de veículos desse estado: ");
+        printf("Digite o número de veículos desse estado: ");
         scanf("%d", &vetor_estados[i].numero_veiculos);
         printf("Digite o número de acidentes desse estado: ");
         scanf("%d", &vetor_estados[i].quantidade_acidentes);
@@ -48,9 +48,9 @@ int main() {
         total_acidentes += vetor_estados[i].quantidade_acidentes;
     }
 
-    printf("O estado com maior número de carros é: %s", sigla_mais_carros);
-    printf("O estado com o menor índice de acidentes é: %s", sigla_menor_indice);
-    printf("O número total de acidentes é: %d", total_acidentes);
+    printf("O estado com maior número de carros é: %s\n", sigla_mais_carros);
+    printf("O estado com o menor índice de acidentes é: %s\n", sigla_menor_indice);
+    printf("O número total de acidentes é: %d\n", total_acidentes);
 
     return 0;
 }
