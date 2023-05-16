@@ -6,6 +6,33 @@ float media_turma(int n, Aluno **turmas, char turma);
 */
 
 #include<stdio.h>
+#include<string.h>
+
+struct aluno {
+    char nome[81];
+    char matricula[8];
+    char turma;
+    float p1;
+    float p2;
+    float p3;
+};
+typedef struct aluno Aluno;
+
+float media_turma(int n, Aluno **turmas, char turma) {
+
+    float media = 0;
+    int num_alunos_turma = 0;
+
+    for(int i=0; i<n; i++) {
+        if(strcmp(turmas[i]->turma, turma) == 0) {
+            num_alunos_turma += 1;
+            media += (turmas[i]->p1 + turmas[i]->p2 + turmas[i]->p3)/3;
+        }
+    }
+    media = media/num_alunos_turma;
+
+    return media;
+}
 
 int main() {
     return 0;
