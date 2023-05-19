@@ -38,7 +38,7 @@ void imprime_aprovados(int n, Aluno **turmas) {
         if(media>MEDIA_PARA_APROVACAO) {
             printf("Aluno aprovado: \n");
             printf("    Nome: %s\n", turmas[i]->nome);
-            printf("    Turma: %s\n", turmas[i]->turma);
+            printf("    Turma: %c\n", turmas[i]->turma);
             printf("    Média: %f\n\n", media);
         }
     }
