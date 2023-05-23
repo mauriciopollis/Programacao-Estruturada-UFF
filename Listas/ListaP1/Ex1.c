@@ -7,10 +7,14 @@ Faça uma função que irá retornar para o programa principal se o número é p
 #include<stdio.h>
 #include<string.h>
 
-int eh_palindromo(char *num) {
+int eh_palindromo(int num) {
 
-    for(int i=0; i<(strlen(num))/2; i++) {
-        if(num[i] != num[strlen(num)-1-i]) {
+    char char_num[10];
+
+    sprintf(char_num, "%d", num);
+
+    for(int i=0; i<(strlen(char_num))/2; i++) {
+        if(char_num[i] != char_num[strlen(char_num)-1-i]) {
             return 0;
         }
     }
@@ -19,22 +23,22 @@ int eh_palindromo(char *num) {
 
 int main(void) {
 
-    char numero[100];
+    int numero;
 
     printf("Digite um número inteiro: ");
-    scanf(" %s", numero);
+    scanf("%d", &numero);
 
-    while(numero[0] != '-') {
+    while(numero>=0) {
 
         if(eh_palindromo(numero)) {
-            printf("%s é palíndromo\n", numero);
+            printf("%d é palíndromo\n", numero);
         }
         else {
-            printf("%s não é palíndromo\n", numero);
+            printf("%d não é palíndromo\n", numero);
         }
 
         printf("Digite um número inteiro: ");
-        scanf(" %s", numero);
+        scanf("%d", &numero);
 
     }
     

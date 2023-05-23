@@ -10,7 +10,7 @@ nota. Faça uma função que receba as seis notas lidas e que retorne para o pro
 float media(float nota1, float nota2, float nota3, float nota4, float nota5, float nota6) {
 
     float notas_atleta[6] = {nota1, nota2, nota3, nota4, nota5, nota6};
-    float maior = 0, menor = 10, media;
+    float maior = 0, menor = 11, media;
 
     for(int i=0; i<6; i++) {
             if(notas_atleta[i]>maior) {

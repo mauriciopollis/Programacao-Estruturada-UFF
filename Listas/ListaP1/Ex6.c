@@ -7,14 +7,12 @@ recursiva que retorne esta quantidade de caracteres. Não é permitido o uso da 
 
 int len_string(char *string) {
 
-    int cumprimento = 0;
-
-    while(*string != '\0') {
-        cumprimento++;
-        string++;
+    if(string[0] == '\0') {
+        return 0;
     }
-
-    return cumprimento;
+    else {
+        return 1 + len_string(string+1);
+    }
 }
 
 int main(void) {
@@ -24,7 +22,7 @@ int main(void) {
     printf("Digite uma string: ");
     scanf(" %99[^\n]s", string);
 
-    printf("A string %s tem cumprimento %d", string, len_string(string));
+    printf("A string %s tem comprimento %d", string, len_string(string));
 
     return 0;
 }
