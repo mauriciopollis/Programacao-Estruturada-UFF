@@ -26,7 +26,7 @@ void insere(Lista *l, int elem) {
     int existe;
     int pos;
     int i;
-    existe = busca(l, elem, &pos);
+    existe = busca_binaria(l, elem, &pos);
     if(existe) {
         printf("Elemento já está na lista\n");
     }
@@ -43,7 +43,7 @@ void removeL(Lista *l, int elem) {
     int pos;
     int existe;
     int i;
-    existe = busca(l, elem, &pos);
+    existe = busca_binaria(l, elem, &pos);
     if(existe) {
         for(i = pos; i < l->total - 1; i++) {
             l->dado[i] = l->dado[i + 1];
@@ -74,7 +74,35 @@ int busca(Lista *l, int elem, int *pos) {
     }
 }
 
-int busca_binaria(Lista *l, int elem, int *pos);
+int busca_binaria(Lista *l, int elem, int *pos) {
+    int inicio = 0;
+    int meio;
+    int final = l->total - 1;
+
+    if(l->total == 0) {
+        *pos = 0;
+        return 0;
+    }
+    else {
+        do {
+            meio = (inicio + final)/2;
+            if(elem == l->dado[meio]) {
+                *pos = meio;
+                return 1;
+            }
+            else {
+                if(elem > l->dado[meio]) {
+                    inicio = meio + 1;
+                }
+                else {
+                    final = meio - 1;
+                }
+            }
+        } while(inicio <= final);
+        *pos = inicio;
+        return 0;
+    }
+}
 
 void imprime_lista(Lista *l) {
     for(int i = 0; i < l->total; i++) {
@@ -120,7 +148,7 @@ int main(void) {
             case 3:
                 printf("Digite o elemento a ser buscado:");
                 scanf("%d", &elemento);
-                busca(&lista, elemento, &pos);
+                busca_binaria(&lista, elemento, &pos);
                 break;
             case 4:
                 imprime_lista(&lista);
