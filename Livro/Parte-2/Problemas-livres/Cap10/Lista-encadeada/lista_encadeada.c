@@ -88,3 +88,35 @@ void lst_enc_libera(Lista *l) {
         no = prox;
     }
 }
+
+Lista* lst_enc_insere_ordenado(Lista *l, int elem) {
+    Lista *novo;
+    Lista *no = l;
+    Lista *anterior = NULL;
+
+    while(no != NULL && no->info < elem) {
+        anterior = no;
+        no = no->prox;
+    }
+
+    novo = (Lista *) malloc(sizeof(Lista));
+    novo->info = elem;
+
+    // checa se o elemento já está na lista
+    if(no != NULL && elem == no->info) {
+        return l;
+    }
+    else {
+        // elemento deve ser inserido no início da lista
+        if(anterior == NULL) {
+            novo->prox = l;
+            return novo;
+        }
+        // elemento deve ser inserido no meio da lista
+        else {
+            novo->prox = anterior->prox;
+            anterior->prox = novo;
+            return l;
+        }
+    }
+}

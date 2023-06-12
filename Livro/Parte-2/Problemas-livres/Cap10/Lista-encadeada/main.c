@@ -28,7 +28,8 @@ int main(void) {
             case 1:
                 printf("Digite o elemento a ser inserido: ");
                 scanf("%d", &elem);
-                lista = lst_enc_insere_inicio(lista, elem);
+                //lista = lst_enc_insere_inicio(lista, elem);
+                lista = lst_enc_insere_ordenado(lista, elem);
                 break;
             case 2:
                 lst_enc_imprime(lista);

@@ -37,3 +37,8 @@ Lista* lst_enc_retira(Lista *l, int elem);
 Libera a memória ocupada pela lista
 */
 void lst_enc_libera(Lista *l);
+
+/*
+Insere elementos na lista de forma a sempre manter ela ordenada. Retorna a lista nova
+*/
+Lista* lst_enc_insere_ordenado(Lista *l, int elem);
