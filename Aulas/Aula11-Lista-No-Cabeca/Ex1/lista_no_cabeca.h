@@ -11,5 +11,11 @@ void *lstnc_insere_ordenado(Lista **l, char *fruta);
 /* Imprime a lista */
 void lstnc_imprime(Lista *l);
 
-/* Busca elemento na lista. Se o elemento não for achado, pre guarda o endereço do nó anterior ao nó que deve conter o novo elemento*/
+/* Busca elemento na lista. pre guarda o endereço do nó anterior ao do elemento*/
 int lstnc_busca(Lista *l, char *fruta, Lista **pre);
+
+/* Remove elemento da lista */
+void lstnc_remove(Lista **l, char *fruta);
+
+/* Retorna a quantidade de nós da lista de forma recursiva*/
+int lstnc_conta_nos_recursiva(Lista *l);

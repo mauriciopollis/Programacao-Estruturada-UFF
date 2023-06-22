@@ -51,3 +51,24 @@ int lstnc_busca(Lista *l, char *fruta, Lista **pre) {
         return 1;
     }
 }
+
+void lstnc_remove(Lista **l, char *fruta) {
+    Lista *pre;
+    Lista *lixo;
+    int existe;
+    existe = lstnc_busca(*l, fruta, &pre);
+    if(existe) {
+        lixo = pre->prox;
+        pre->prox = lixo->prox;
+        free(lixo);
+    }
+}
+
+int lstnc_conta_nos_recursiva(Lista *l) {
+    if(l->prox == NULL) {
+        return 1;
+    }
+    else {
+        return (1 + lstnc_conta_nos_recursiva(l->prox));
+    }
+}

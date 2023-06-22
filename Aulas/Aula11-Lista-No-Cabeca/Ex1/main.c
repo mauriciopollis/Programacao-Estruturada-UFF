@@ -21,10 +21,20 @@ Faça um programa que:
 #include "lista_no_cabeca.h"
 #include "lista_no_cabeca.c"
 
+void menu(void) {
+    printf("[1] - Insere elemento\n");
+    printf("[2] - Remove elemento\n");
+    printf("[3] - Mostra lista\n");
+    printf("[4] - Informa quantidade de nós\n");
+    printf("[5] - Fim do programa\n");
+    printf("Escolha: ");
+}
+
 int main(void) {
 
     Lista *lista_frutas;
     char fruta[50];
+    int escolha, continua = 1;
 
     lista_frutas = lstnc_cria();
 
@@ -38,6 +48,37 @@ int main(void) {
     }
 
     lstnc_imprime(lista_frutas);
+
+    while(continua) {
+        menu();
+        scanf("%d", &escolha);
+        
+        switch(escolha) {
+            case 1:
+                printf("Insira a fruta a ser inserida: ");
+                scanf(" %49[^\n]s", fruta);
+                lstnc_insere_ordenado(&lista_frutas, fruta);
+                break;
+            case 2:
+                printf("Insira a fruta a ser removida: ");
+                scanf(" %49[^\n]s", fruta);
+                lstnc_remove(&lista_frutas, fruta);
+                break;
+            case 3:
+                lstnc_imprime(lista_frutas);
+                break;
+            case 4:
+                int quantidade_nos;
+                quantidade_nos = lstnc_conta_nos_recursiva(lista_frutas);
+                printf("A lista tem %d nos\n", quantidade_nos);
+                break;
+            case 5:
+                continua = 0;
+                break;
+            default:
+                break;
+        }
+    }
 
     return 0;
 }
